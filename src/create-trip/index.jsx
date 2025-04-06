@@ -17,6 +17,7 @@
     import { useGoogleLogin } from "@react-oauth/google";
     import axios from "axios";
 import { db } from "../service/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
     function CreateTrip() {
     const [place, setPlace] = useState();
@@ -24,6 +25,8 @@ import { db } from "../service/firebaseConfig";
     const [isLoading, setIsLoading] = useState(false);
     const [openDailog, setOpenDailog] = useState(false);
     const [loading,setLoading] = useState(false);
+    
+    const navigate = useNavigate();
 
     const handleInputChange = (name, value) => {
         if (name === "noOfDays" && value > 5) {
@@ -95,6 +98,7 @@ import { db } from "../service/firebaseConfig";
         id:docId
         });
         setLoading(false);
+        navigate('/view-trip/'+ docId)
     }
 
     const GetUserProfile = async (access_token) => {

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CreateTrip from './create-trip/index.jsx';
 import { Toaster } from 'sonner';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import Viewtrip from './view-trip/[tripId/index.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/create-trip" element={<CreateTrip />} />
+          <Route path='/view-trip/:tripId' element={<Viewtrip />} />
         </Routes>
       </BrowserRouter>
     </GoogleOAuthProvider>
