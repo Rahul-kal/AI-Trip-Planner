@@ -6,6 +6,7 @@
     import { toast } from "sonner";
     import { chatSession } from "../service/AIModal";
     import { FcGoogle } from "react-icons/fc";
+    import { doc, setDoc } from "firebase/firestore"; 
     import {
     Dialog,
     DialogContent,
@@ -15,12 +16,14 @@
     } from "@/components/ui/dialog";
     import { useGoogleLogin } from "@react-oauth/google";
     import axios from "axios";
+import { db } from "../service/firebaseConfig";
 
     function CreateTrip() {
     const [place, setPlace] = useState();
     const [formData, setFormData] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [openDailog, setOpenDailog] = useState(false);
+    const [loading,setLoading] = useState(false);
 
     const handleInputChange = (name, value) => {
         if (name === "noOfDays" && value > 5) {
@@ -56,19 +59,21 @@
         toast("Please fill all details");
         return;
         }
-
+        setLoading(true);
         const FINAL_PROMPT = AI_PROMPT
         .replace("{location}", formData.location.label)
         .replace("{totalDays}", formData.noOfDays)
         .replace("{traveler}", formData.traveler)
         .replace("{budget}", formData.budget);
 
-        console.log("Sending prompt:", FINAL_PROMPT);
-
         try {
         setIsLoading(true);
         const result = await chatSession.sendMessage(FINAL_PROMPT);
         const responseText = await result?.response?.text();
+        setLoading(false);
+        SaveAiTrip(result?.response?.text());
+
+
         console.log("AI Response:", responseText);
         toast("Trip generated successfully!");
         } catch (error) {
@@ -78,6 +83,19 @@
         setIsLoading(false);
         }
     };
+
+    const SaveAiTrip= async(TripData) =>{
+        setLoading(true);
+        const user = JSON.parse(localStorage.getItem('user'));
+        const docId = Date.now().toString()
+        await setDoc(doc(db, "AITrips", "docId"), {
+        userSelection:formData,
+        tripData:JSON.parse(TripData),
+        userEmail:user?.email,
+        id:docId
+        });
+        setLoading(false);
+    }
 
     const GetUserProfile = async (access_token) => {
         try {
