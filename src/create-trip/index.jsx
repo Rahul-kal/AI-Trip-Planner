@@ -1,5 +1,5 @@
     import React, { useEffect, useState } from "react";
-    import Header from "../components/ui/custom/header";
+    import Header from "../components/ui/custom/Header";
     import GooglePlacesAutocomplete from "react-google-places-autocomplete";
     import { AI_PROMPT, SelectBudgetOptions, SelectTravelsList } from "../constants/options";
     import { Button } from "../components/ui/button";
