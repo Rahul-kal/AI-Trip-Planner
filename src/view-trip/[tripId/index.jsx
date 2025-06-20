@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../../components/ui/custom/header';
+import Header from '../../components/ui/custom/Header';
 import { useParams } from 'react-router-dom';
 import { db } from '@/service/firebaseConfig';
 import { toast } from 'sonner';
