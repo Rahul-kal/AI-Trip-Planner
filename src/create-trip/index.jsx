@@ -7,6 +7,7 @@
     import { chatSession } from "../service/AIModal";
     import { FcGoogle } from "react-icons/fc";
     import { doc, setDoc } from "firebase/firestore"; 
+    import { AiOutlineLoading3Quarters } from "react-icons/ai";
     import {
     Dialog,
     DialogContent,
@@ -203,9 +204,16 @@ import { useNavigate } from "react-router-dom";
             </div>
 
             {/* Generate Button */}
-            <div className="my-10 justify-end flex">
-            <Button onClick={onGenerateTrip} disabled={isLoading}>
-                {isLoading ? "Generating..." : "Generate Trip"}
+            <div className="my-10 justify-end flex  ">
+            <Button 
+                disabled={isLoading}
+                onClick={onGenerateTrip}>
+                {isLoading ? (
+                    <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin text-white "/>
+                    ) : (
+                    "Generate Trip"
+                )}
+
             </Button>
             </div>
 

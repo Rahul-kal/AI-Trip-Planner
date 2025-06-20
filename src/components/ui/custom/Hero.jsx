@@ -19,6 +19,8 @@
         <Button onClick={() => navigate('/create-trip')}>
             Get Started, It's Free
         </Button>
+
+        <img src='/landing.png' className='' />
         </div>
     );
     }

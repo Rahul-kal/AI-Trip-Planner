@@ -7,6 +7,7 @@ import CreateTrip from './create-trip/index.jsx';
 import { Toaster } from 'sonner';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Viewtrip from './view-trip/[tripId/index.jsx';
+import MyTrips from './my-trips/index.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
         <Toaster />
         <Routes>
           <Route path="/" element={<App />} />
+          <Route path="/my-trips" element={<MyTrips />} />
           <Route path="/create-trip" element={<CreateTrip />} />
           <Route path='/view-trip/:tripId' element={<Viewtrip />} />
         </Routes>
