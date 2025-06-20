@@ -23,7 +23,11 @@ function InfoSection({trip}) {
   }
   return (
     <div>
-        <img src={photoUrl?photoUrl:'/placeholder.jpg'} className='h-[340px] w-full object-cover rounded-xl'/>
+        <img 
+          src={photoUrl ? photoUrl : '/placeholder.jpg'} 
+          alt="Trip Cover"
+          className="w-full h-[340px] object-cover rounded-2xl shadow-md transition-transform duration-300 hover:scale-105"
+        />
 
         <div className='flex justify-between items-center'>
             <div className=' my-5 flex flex-col gap-2'>
