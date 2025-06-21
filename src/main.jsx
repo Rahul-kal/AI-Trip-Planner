@@ -6,6 +6,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CreateTrip from './create-trip/index.jsx';
 import { Toaster } from 'sonner';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+<<<<<<< HEAD
+=======
+import Viewtrip from './view-trip/[tripId/index.jsx';
+import MyTrips from './my-trips/index.jsx';
+>>>>>>> d7177e3 (Versel.json)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,7 +19,13 @@ createRoot(document.getElementById('root')).render(
         <Toaster />
         <Routes>
           <Route path="/" element={<App />} />
+<<<<<<< HEAD
           <Route path="/create-trip" element={<CreateTrip />} />
+=======
+          <Route path="/my-trips" element={<MyTrips />} />
+          <Route path="/create-trip" element={<CreateTrip />} />
+          <Route path='/view-trip/:tripId' element={<Viewtrip />} />
+>>>>>>> d7177e3 (Versel.json)
         </Routes>
       </BrowserRouter>
     </GoogleOAuthProvider>

@@ -1,5 +1,9 @@
     import React, { useEffect, useState } from "react";
+<<<<<<< HEAD
     import Header from "../components/ui/custom/header";
+=======
+    import Header from "../components/ui/custom/Header";
+>>>>>>> d7177e3 (Versel.json)
     import GooglePlacesAutocomplete from "react-google-places-autocomplete";
     import { AI_PROMPT, SelectBudgetOptions, SelectTravelsList } from "../constants/options";
     import { Button } from "../components/ui/button";
@@ -7,6 +11,10 @@
     import { chatSession } from "../service/AIModal";
     import { FcGoogle } from "react-icons/fc";
     import { doc, setDoc } from "firebase/firestore"; 
+<<<<<<< HEAD
+=======
+    import { AiOutlineLoading3Quarters } from "react-icons/ai";
+>>>>>>> d7177e3 (Versel.json)
     import {
     Dialog,
     DialogContent,
@@ -17,6 +25,10 @@
     import { useGoogleLogin } from "@react-oauth/google";
     import axios from "axios";
 import { db } from "../service/firebaseConfig";
+<<<<<<< HEAD
+=======
+import { useNavigate } from "react-router-dom";
+>>>>>>> d7177e3 (Versel.json)
 
     function CreateTrip() {
     const [place, setPlace] = useState();
@@ -24,6 +36,11 @@ import { db } from "../service/firebaseConfig";
     const [isLoading, setIsLoading] = useState(false);
     const [openDailog, setOpenDailog] = useState(false);
     const [loading,setLoading] = useState(false);
+<<<<<<< HEAD
+=======
+    
+    const navigate = useNavigate();
+>>>>>>> d7177e3 (Versel.json)
 
     const handleInputChange = (name, value) => {
         if (name === "noOfDays" && value > 5) {
@@ -95,6 +112,10 @@ import { db } from "../service/firebaseConfig";
         id:docId
         });
         setLoading(false);
+<<<<<<< HEAD
+=======
+        navigate('/view-trip/'+ docId)
+>>>>>>> d7177e3 (Versel.json)
     }
 
     const GetUserProfile = async (access_token) => {
@@ -199,9 +220,22 @@ import { db } from "../service/firebaseConfig";
             </div>
 
             {/* Generate Button */}
+<<<<<<< HEAD
             <div className="my-10 justify-end flex">
             <Button onClick={onGenerateTrip} disabled={isLoading}>
                 {isLoading ? "Generating..." : "Generate Trip"}
+=======
+            <div className="my-10 justify-end flex  ">
+            <Button 
+                disabled={isLoading}
+                onClick={onGenerateTrip}>
+                {isLoading ? (
+                    <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin text-white "/>
+                    ) : (
+                    "Generate Trip"
+                )}
+
+>>>>>>> d7177e3 (Versel.json)
             </Button>
             </div>
 
@@ -209,7 +243,11 @@ import { db } from "../service/firebaseConfig";
             <Dialog open={openDailog}>
             <DialogContent className="max-w-sm rounded-2xl px-6 py-8">
                 <DialogHeader className="flex flex-col items-center text-center">
+<<<<<<< HEAD
                 <img src="/logo.svg" alt="Logo" className="w-63 h-24 mb-6" />
+=======
+                <img src="/public/pexels-eslames1-31462402.jpg" alt="Logo" className="w-63 h-24 mb-6" />
+>>>>>>> d7177e3 (Versel.json)
                 <DialogTitle className="text-xl font-bold mt-2">Sign In With Google</DialogTitle>
                 <DialogDescription className="text-sm text-gray-500 mt-2 mb-6">
                     Sign in to the app using your Google account securely.

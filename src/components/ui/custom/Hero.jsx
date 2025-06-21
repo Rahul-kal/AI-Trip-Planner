@@ -19,6 +19,11 @@
         <Button onClick={() => navigate('/create-trip')}>
             Get Started, It's Free
         </Button>
+<<<<<<< HEAD
+=======
+
+        <img src='/landing.png' className='' />
+>>>>>>> d7177e3 (Versel.json)
         </div>
     );
     }

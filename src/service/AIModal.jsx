@@ -5,14 +5,23 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
     const genAI = new GoogleGenerativeAI(apiKey);
     
     const model = genAI.getGenerativeModel({
+<<<<<<< HEAD
         model: "gemini-2.5-pro-preview-03-25",
+=======
+        model: "gemini-1.5-flash",
+>>>>>>> d7177e3 (Versel.json)
     });
     
     const generationConfig = {
         temperature: 1,
         topP: 0.95,
+<<<<<<< HEAD
         topK: 64,
         maxOutputTokens: 65536,
+=======
+        topK: 40,
+        maxOutputTokens: 8192,
+>>>>>>> d7177e3 (Versel.json)
         responseModalities: [
         ],
         responseMimeType: "application/json",
